@@ -18,9 +18,9 @@ $(document).ready(function(){
   let trainTime = 0;
   let frequency = 0;
 
+  //This listens to the button in the form and gets the values from the fields
   $("#form-btn").on("click", function(event){
             event.preventDefault();
-            console.log("hello");
             trainName = $("#train-name").val().trim();
             destination = $("#destination").val().trim();
             trainTime = $("#train-time").val().trim();
@@ -34,19 +34,39 @@ $(document).ready(function(){
             });
   });
 
-  
+ //This listens to the database and gets the values from the fields
   database.ref().on("child_added", function(snapshot){
-    console.log(snapshot.val());
-    let body = $("tbody");
-    let time = "Time";
-    body.append(
-        `<tr>` + 
-            `<td>` +  snapshot.val().train + `</td>` +
-            `<td>` +  snapshot.val().destination + `</td>` +
-            `<td>` +  snapshot.val().time + `</td>` +
-            `<td>` +  snapshot.val().frequency + `</td>` +
-            `<td>` +  time + `</td>` +
-        `</tr>`
+        console.log(snapshot.val());
+        // trainTime (pushed back 1 year to make sure it comes before current time)
+        let time = moment(trainTime, "HH:mm").subtract(1, "years");
+        console.log(time);
+        // Current Time
+        let currentTime = moment(); 
+        console.log(currentTime);
+        // Difference between the times
+        var diffTime = moment().diff(moment(time), "minutes");
+        console.log("DIFFERENCE IN TIME: " + diffTime);
+        // Time apart (remainder)
+        var tRemainder = diffTime % frequency;
+        console.log(tRemainder);
+        // Minute Until Train
+        let minAway = frequency - tRemainder;
+        // Next Train
+        var nextTrain = moment().add(minAway, "minutes");
+        var mainTime = moment(nextTrain).format("hh:mm");
+        
+      
+
+    //This dynamically appends a tr and a tds to the tbody
+        let body = $("tbody");
+        body.append(
+            `<tr>` + 
+                `<td>` +  snapshot.val().train + `</td>` +
+                `<td>` +  snapshot.val().destination + `</td>` +
+                `<td>` +  snapshot.val().frequency + `</td>` +
+                `<td>` +  mainTime  + `</td>` +
+                `<td>` +  minAway + `</td>` +
+            `</tr>`
     );
   
 

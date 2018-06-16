@@ -13,8 +13,13 @@ header {
     text-align: center;
 }
 
+h1 {
+    font-size: 50px;
+    color: #3f3f3f;
+}
+
 #main-header {
-    background-color: #383869;
+    background-color: #C2CAD0;
     text-align: center;
     color: #fff;
     padding: 30px 0 30px 0;
@@ -22,19 +27,17 @@ header {
 
 
 .row  {
-    margin-bottom: 20px;
-    
+    margin-bottom: 20px;  
 }
 
 .bucket {
-    border: 1px solid #5a5ab3;
+    border: 1px solid #AFD275;
     padding: 0 0 10px 0;
     overflow: hidden;
-
 }
 
 .bucket-title {
-    background-color: #5a5ab3;
+    background-color: #AFD275;
     height: auto;
     display: inline-block;
     width:100%;
@@ -55,11 +58,11 @@ thead > tr {
 td {
     padding: 5px 110px 5px 8px;
     margin: 40px;
-    border-bottom: 1px solid #dadada;  
+    border-bottom: 1px solid #C2CAD0;  
 }
 
 tr:nth-child(even){
-    background-color: #dadada;
+    background-color: #C2CAD0;
 }
 
 form {
@@ -70,4 +73,67 @@ form {
     margin-bottom: 12px;
     width: 250px;
     height: 20px;
+}
+
+@media only screen and (max-width: 992px) {
+    .wrapper {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .row  {
+        margin: 0 10px 0 10px;  
+    }
+
+}
+
+
+@media only screen and (max-width: 768px) {
+    .wrapper {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    td {
+        padding: 5px 90px 5px 8px;
+        margin: 40px;
+        border-bottom: 1px solid #C2CAD0;  
+    }
+    
+    .row  {
+        margin: 0 10px 0 10px;  
+    }
+
+}
+
+
+@media only screen and (max-width: 576px) {
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+     }
+
+     h1 {
+        font-size: 30px;
+    }
+
+     thead > tr {
+        font-weight: 600;
+    }
+     
+    .wrapper {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    td {
+        padding: 5px 20px 5px 8px;
+        margin: 40px;
+        border-bottom: 1px solid #C2CAD0;  
+    }
+    
+    .row  {
+        margin: 0 10px 0 10px;  
+    }
+
 }
