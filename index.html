@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Train</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/reset.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+     <!-- Firebase Reference -->
+     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+  </head>
+
+  <body>
+      <header>
+            <div class="wrapper">
+                <div id="main-header">
+                    <h1>Train Station Times</h1>
+                </div>
+            </div>
+      </header>
+       
+      <section>
+          <div class="wrapper">
+                <div class="row">
+                    <div class="bucket">
+                        <span class="bucket-title">Current Train Schedule</span>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Train Name</td>
+                                    <td>Destination</td>
+                                    <td>Frequency (min)</td>
+                                    <td>Next Arrival</td>
+                                    <td>Minutes Away</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                   </div>
+                </div>
+                <div class="row">
+                     <div class="bucket">
+                         <span class="bucket-title">Add Train</span>
+                        <form>
+                            <label for="train-name">Train Name</label><br>
+                            <input class="input-class" type="text" name="train" id="train-name" placeholder="Houston Express"><br>
+                            <label for="destination">Destination</label><br>
+                            <input class="input-class" type="text" name="dest" id="destination" placeholder="Lala Land"><br>
+                            <label for="train-time">First Train Time (HH:mm - military time)</label><br>
+                            <input class="input-class" type="text" name="time" id="train-time" placeholder="01:20"><br>
+                            <label for="frequency">Frequency</label><br>
+                            <input class="input-class" type="text" name="freq" id="frequency" placeholder="15"><br>
+                            <button id="form-btn" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+        </div>
+     </section>
+     <script src="assets/javascript/app.js"></script>
+  </body>
+
+</html>
