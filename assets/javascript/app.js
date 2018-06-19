@@ -47,10 +47,10 @@ $(document).ready(function(){
         var diffTime = moment().diff(moment(time), "minutes");
         console.log("DIFFERENCE IN TIME: " + diffTime);
         // Time apart (remainder)
-        var tRemainder = diffTime % frequency;
+        var tRemainder = diffTime % parseInt(snapshot.val().frequency);
         console.log(tRemainder);
         // Minute Until Train
-        let minAway = frequency - tRemainder;
+        let minAway = parseInt(snapshot.val().frequency) - tRemainder;
         // Next Train
         var nextTrain = moment().add(minAway, "minutes");
         var mainTime = moment(nextTrain).format("hh:mm");
